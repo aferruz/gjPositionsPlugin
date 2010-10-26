@@ -1,2 +1,30 @@
-@import url('/gjPositionsPlugin/css/design_elements.css');
-@import url('/gjPositionsPlugin/css/content_elements.css');
+      #sortable1, #sortable2, #sortable3, #sortable4, #sortable5, #sortable6, #sortable7,  #sortable8, #sortable9, #sortable10  { list-style-type: none; margin: 0; padding: 0; margin-right: 10px; padding: 5px; width: 32em; }
+      #sortable1 li, #sortable2 li, #sortable3 li, #sortable4 li, #sortable5 li, #sortable6 li, #sortable7 li, #sortable8 li, #sortable9 li, #sortable10 li   { margin: 9px; padding: 5px; font-size: 1.0em; width: 28em; }
+      #container
+      {
+        background-color:white;
+        border: 1px solid #DDDDDD; 
+        width: 123em;
+      }
+      .body-container-left
+      {
+        float:left;
+        width:77em;
+        background-color: #c9c9c9;
+      }
+      .body-container-right
+      {
+        float:left;
+        width:41.1em; 
+        margin-left:2px
+      }
+      #clearing
+      {
+        clear:both;
+        }
+        .auto-scroll-y
+      {
+        overflow-y:scroll; 
+        max-height:600px;
+      }
+

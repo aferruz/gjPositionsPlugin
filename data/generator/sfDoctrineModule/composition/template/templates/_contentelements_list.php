@@ -1,3 +1,4 @@
+<!-- START [?php echo __FILE__; ?] -->
 <ul>
 [?php foreach($allRecords as $model => $records): ?]
   <li>
@@ -16,3 +17,4 @@
   </li>
 [?php endforeach; ?]
 </ul>
+<!-- END [?php echo __FILE__; ?] -->

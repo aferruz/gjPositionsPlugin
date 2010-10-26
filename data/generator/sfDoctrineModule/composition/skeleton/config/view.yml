@@ -1,5 +1,6 @@
 default:
   stylesheets:
+    - /gjPositionsPlugin/css/overcast/jquery-ui-1.8.5.custom.css
     - /gjPositionsPlugin/css/positions.css
   javascripts:
     - /gjPositionsPlugin/js/jquery-1.4.2.min.js

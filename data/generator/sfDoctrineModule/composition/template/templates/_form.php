@@ -1,10 +1,10 @@
 [?php use_stylesheets_for_form($form) ?]
 [?php use_javascripts_for_form($form) ?]
 
-<table style="width:100%;table-layout:fixed">
-  <tr>
-    <td style="width:50%">
-      <h3><?php echo $this->params['model_class']; ?></h3>
+<div id="container">
+  <div class="body-container-left">
+
+    <h3><?php echo $this->params['model_class']; ?></h3>
       <div class="sf_admin_form">
         [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>') ?]
           [?php echo $form->renderHiddenFields(false) ?]
@@ -20,18 +20,30 @@
           [?php include_partial('<?php echo $this->getModuleName() ?>/form_actions', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?]
         </form>
       </div>
-    </td>
-    <td style="width:25%">
+
+  </div>
+
+  <div id="tabs" class="body-container-right">
+    <ul>
+      <li><a href="#fragment-1"><span>Design Elements</span></a></li>
+      <li><a href="#fragment-2"><span>Contents</span></a></li>
+    </ul>
+    <div id="fragment-1">
+
       <h3>Design Elements</h3>
-      <div class="sf_admin_form" id="gj_page_admin_design_elements">
+      <div class="sf_admin_form auto-scroll-y" id="accordion1">
         [?php include_component('<?php echo $this->getModuleName() ?>', 'designelements_list', array('canvas' => $gj_page)); ?]
       </div>
-    </td>
-    <td style="width:25%">
+
+    </div>
+    <div id="fragment-2">
+
       <h3>Contents</h3>
-      <div class="sf_admin_form" id="gj_page_admin_content_elements">
+      <div class="sf_admin_form" id="accordion2">
         [?php include_component('<?php echo $this->getModuleName() ?>', 'contentelements_list', array('page' => $gj_page)); ?]
       </div>
-    </td>
-  </td>
-</table>
+
+    </div>
+  </div>
+  <div id="clearing"></div>
+</div>

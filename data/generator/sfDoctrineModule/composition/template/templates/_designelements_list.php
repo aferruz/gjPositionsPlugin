@@ -1,3 +1,4 @@
+<!-- START [?php echo __FILE__; ?] -->
   <ol id="design_element_source_list" class="interaction">
 [?php foreach($elements as $name => $config): ?]
     <li id="[?php echo $name; ?]">
@@ -5,3 +6,4 @@
     </li>
 [?php endforeach; ?]
   </ol>
+<!-- END [?php echo __FILE__; ?] -->

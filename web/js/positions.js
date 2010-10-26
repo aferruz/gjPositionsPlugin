@@ -1,42 +1,57 @@
-gjDesignElements = {
-  initDesignElements:function()
-  {
-    jQuery('.design-elements-head a').click(gjDesignElements.toggleDesignElement);
-  },
-  toggleDesignElement:function()
-  {
-    src = jQuery(this).children('img').attr('src');
-    src = src.match(/more/) ? src.replace(/more/, 'less') : src.replace(/less/, 'more');
-    jQuery(this).children('img').attr('src', src);
-    jQuery(this).parent().next('.design-element-include').slideToggle();
-  },
-  init:function()
-  {
-    $('.content > .positions_container')
-      .sortable(
-      {
-        items:'li:not(.placeholder,.content_element_item)',
-        axis:'y',
-        sort:function(){$(this).removeClass('ui-state-default');},
-        update:function(){$(this).find('input[name$=\[position\]]').not('input[name*=\[contents\]]').each(function(i,element){$(element).val(i);});}
-      });
-    gjDesignElements.initDesignElements();
-  }
-}
+  var idBase =null;
+  var next= null;
+  var child =null;
+  var copyObject = null;
+  var copy = null;
+      
+  $(function() {
+    $("ul.droptrue").sortable({
+      connectWith: 'ul',
+      receive: function(event, ui) {
+          copyObject = $('#'+ui.item.attr("id")).clone();
+          if (copy)
+          {
+            if (prev.length)
+            {
+              copyObject.insertAfter(prev);
+            }
+            else
+            {
+              child = $('#'+idBase).children(":first");
+              
+              if (child.length)
+              {
+                copyObject.insertBefore(child);
+              }
+              else
+              {
+                copyObject.appendTo('#'+idBase);
+              }
+            }
+            
+          copy = false;
+           }
+        },
+      start: function(event, ui) { 
+        copy = true;
+        prev = ui.item.prev();
+        idBase = this.id;
+        }
+    }); 
 
-gjContentElements = {
-  init:function()
-  {
-    $('#design_element_items .positions_container')
-      .sortable(
-      {
-        items:'li:.content_element_item',
-        axis:'y',
-        sort:function(){$(this).removeClass('ui-state-default');},
-        update:function(){$(this).find('input[name$=\[position\]][name*=\[contents\]]').each(function(i,element){$(element).val(i);});}
-      });
-  }
-}
-
-jQuery(document).ready(gjDesignElements.init);
-jQuery(document).ready(gjContentElements.init);
+    $("#sortable1, #sortable2, #sortable3, #sortable4, #sortable5, #sortable6, #sortable7, #sortable8, #sortable9, #sortable10").disableSelection();
+    
+    $("#accordion1").accordion({ 
+      active: false,
+      autoheight: false,
+      clearStyle: true 
+    });
+    
+    $("#accordion2").accordion({ 
+      active: false,
+      autoheight: false,
+      clearStyle: true  
+    });
+    
+    $("#tabs").tabs();
+  });

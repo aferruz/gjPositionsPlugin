@@ -7,4 +7,9 @@ class gjWidgetFormSchemaFormatterContentElementContainer extends sfWidgetFormSch
     $errorRowFormat  = "<li>\n%errors%</li>\n",
     $helpFormat      = '<br />%help%',
     $decoratorFormat = "<ol class=\"positions_container inner\">\n  %content%</ol>";
+
+  public function getDecoratorFormat()
+  {
+    return "\n<!-- START ".__FILE__." -->\n".$this->decoratorFormat."\n<!-- END ".__FILE__." -->\n";
+  }
 }
